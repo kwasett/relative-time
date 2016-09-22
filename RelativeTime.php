@@ -3,7 +3,7 @@
  * Description of RelativeTime
  *
  * @author Seth<sethkwakwa@gmail.com>
- * Folked from https://gist.github.com/mattytemple/3804571
+ * Forked from https://gist.github.com/mattytemple/3804571
  */
 
 class RelativeTime {
