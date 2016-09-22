@@ -1,16 +1,11 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of RelativeTime
  *
  * @author Seth<sethkwakwa@gmail.com>
+ * Folked from https://gist.github.com/mattytemple/3804571
  */
+
 class RelativeTime {
 
     public $messages = array(
@@ -40,13 +35,14 @@ class RelativeTime {
         $this->messages = (count($messages) > 0) ? $messages : $this->messages;
     }
 
-   
-
-    function GetTime($ts) {
-        if (!ctype_digit($ts)) {
-            $ts = strtotime($ts);
-        }
-        $diff = time() - $ts;
+   /***
+    * 
+    */
+   public  function GetTime($ts) {
+    if(!ctype_digit($ts)) {
+        $ts = strtotime($ts);
+    }
+    $diff = time() - $ts;
         if ($diff == 0) {
             return $this->messages['now'];
             ;
@@ -66,11 +62,9 @@ class RelativeTime {
             }
             if ($day_diff == 1) {
                 return $this->messages['yesterday'];
-                ;
             }
             if ($day_diff < 7) {
                 return $day_diff . $this->messages['days_ago'];
-                ;
             }
             if ($day_diff < 31) {
                 return ceil($day_diff / 7) . $this->messages['weeks_ago'];
